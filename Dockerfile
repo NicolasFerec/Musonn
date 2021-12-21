@@ -1,11 +1,11 @@
-FROM debian:11
+FROM devilbox/php-fpm-8.1:latest
 
 RUN echo "**** update packages ****" \
 && apt update -y && apt upgrade -y
 
 COPY app/ ./
 RUN echo "**** install symfony ****" \
-&& apt install php8.1 curl php-cli php-mbstring unzip git -y \
+&& apt install curl php-cli php-mbstring unzip git -y \
 && curl -sS https://getcomposer.org/installer -o composer-setup.php \
 && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
 && composer install
