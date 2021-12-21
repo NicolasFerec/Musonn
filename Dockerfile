@@ -7,9 +7,7 @@ RUN echo "**** install packages ****" \
 && apt-get clean -y
 
 RUN echo "**** install streamrip ****" \
-&& python3 -m pip install streamrip --upgrade 
-
-#simple-term-menu
+&& python3 -m pip install streamrip simple-term-menu --upgrade 
 
 COPY index.html ./
 
@@ -17,5 +15,8 @@ VOLUME /config
 VOLUME /download
 
 EXPOSE 6356
+
+WORKDIR /download
+RUN rip -u https://www.deezer.com/fr/track/10199750
 
 CMD ["python3", "-m", "http.server", "6356"]
