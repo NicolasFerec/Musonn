@@ -11,5 +11,3 @@ RUN echo "**** install packages ****" \
 EXPOSE 6356
 VOLUME /config
 VOLUME /download
-
-CMD echo "test" > /config/test.txt
