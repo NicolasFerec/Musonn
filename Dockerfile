@@ -2,7 +2,7 @@ FROM debian:9
 
 RUN echo "**** install packages ****" \
 && apt-get update -yq \
-&& apt-get install python3-venv python3-pip ffmpeg -yq \
+&& apt-get install python3-venv python3-pip ffmpeg node -yq \
 && echo "**** install streamrip ****" \
 #&& python3 -m pip install streamrip simple-term-menu --upgrade \
 && echo "**** cleanup ****" \
@@ -12,4 +12,4 @@ EXPOSE 6356
 VOLUME /config
 VOLUME /download
 
-ENTRYPOINT [/bin/bash]
+CMD python -m SimpleHTTPServer 6356
