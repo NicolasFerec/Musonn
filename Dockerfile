@@ -1,16 +1,22 @@
 FROM debian:11
 
-RUN echo "**** install packages ****" \
-&& apt-get update -y && apt-get upgrade -y \
-&& apt-get install python3 python3-venv python3-pip -y \
-&& echo "**** cleanup ****" \
-&& apt-get clean -y
+RUN echo "**** update packages ****" \
+&& apt update -y && apt upgrade -y
+
+RUN echo "**** install symfony ****" \
+&& apt install curl php-cli php-mbstring unzip git -y \
+&& curl -sS https://getcomposer.org/installer -o composer-setup.php \
+&& php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 RUN echo "**** install streamrip ****" \
+&& apt install python3 python3-venv python3-pip -y \
 && python3 -m pip install streamrip simple-term-menu --upgrade 
+COPY streamrip-config.toml /root/.config/streamrip/config.toml
+
+RUN echo "**** cleanup ****" \
+&& apt-get clean -y
 
 COPY index.html ./
-COPY streamrip-config.toml /root/.config/streamrip/config.toml
 
 VOLUME /config
 VOLUME /download
