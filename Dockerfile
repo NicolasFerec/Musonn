@@ -16,11 +16,11 @@ COPY streamrip-config.toml /root/.config/streamrip/config.toml
 RUN echo "**** cleanup ****" \
 && apt-get clean -y
 
-COPY index.html ./
+COPY app/ ./
 
 VOLUME /config
 VOLUME /download
 
 EXPOSE 6356
 
-CMD ["python3", "-m", "http.server", "6356"]
+CMD ["php", "bin/console", "server:start"]
