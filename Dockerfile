@@ -17,6 +17,6 @@ VOLUME /download
 EXPOSE 6356
 
 WORKDIR /download
-RUN rip -u https://www.deezer.com/fr/track/10199750
+RUN rip url https://www.deezer.com/fr/track/10199750
 
 CMD ["python3", "-m", "http.server", "6356"]
