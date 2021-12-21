@@ -23,6 +23,6 @@ RUN echo "**** cleanup ****" \
 VOLUME /config
 VOLUME /download
 
-EXPOSE 6356
+EXPOSE 8000
 
 CMD ["symfony", "server:start"]
