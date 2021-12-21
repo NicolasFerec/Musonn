@@ -8,6 +8,8 @@ RUN echo "**** install packages ****" \
 && echo "**** cleanup ****" \
 && apt-get clean -y
 
+copy root/ /
+
 EXPOSE 6356
 VOLUME /config
 VOLUME /download
