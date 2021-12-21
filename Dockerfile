@@ -18,6 +18,6 @@ VOLUME /download
 EXPOSE 6356
 
 RUN rip config --path
-RUN rip url https://www.deezer.com/fr/track/10199750
+#RUN rip url https://www.deezer.com/fr/track/10199750
 
 CMD ["python3", "-m", "http.server", "6356"]
