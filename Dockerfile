@@ -1,6 +1,6 @@
 FROM debian:9
 
-RUN echo "**** install packages ****" \
+#RUN echo "**** install packages ****" \
 #&& apt-get update -yq \
 #&& apt-get install python3-venv python3-pip ffmpeg -yq \
 #&& echo "**** install streamrip ****" \
