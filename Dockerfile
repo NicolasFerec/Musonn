@@ -10,13 +10,14 @@ RUN echo "**** install streamrip ****" \
 && python3 -m pip install streamrip simple-term-menu --upgrade 
 
 COPY index.html ./
+#COPY streamrip-config.toml /root/.config/streamrip/config.toml
 
 VOLUME /config
 VOLUME /download
 
 EXPOSE 6356
 
-WORKDIR /download
+RUN rip config --path
 RUN rip url https://www.deezer.com/fr/track/10199750
 
 CMD ["python3", "-m", "http.server", "6356"]
