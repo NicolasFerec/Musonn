@@ -7,6 +7,7 @@ COPY app/ ./
 RUN echo "**** install symfony ****" \
 && apt install curl wget unzip git -y \
 && wget https://get.symfony.com/cli/installer -O - | bash \
+&& mv /root/.symfony/bin/symfony /usr/local/bin/symfony \
 && curl -sS https://getcomposer.org/installer -o composer-setup.php \
 && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
 && composer install
