@@ -6,6 +6,7 @@ RUN echo "**** update packages ****" \
 COPY app/ ./
 RUN echo "**** install symfony ****" \
 && apt install curl unzip git -y \
+&& wget https://get.symfony.com/cli/installer -O - | bash \
 && curl -sS https://getcomposer.org/installer -o composer-setup.php \
 && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
 && composer install
@@ -23,4 +24,4 @@ VOLUME /download
 
 EXPOSE 6356
 
-CMD ["php", "bin/console", "server:start"]
+CMD ["symfony", "server:start"]
