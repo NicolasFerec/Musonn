@@ -1,16 +1,21 @@
-FROM debian:9
+FROM debian:11
 
-RUN echo "**** install packages ****" \
-&& apt-get update -yq \
-&& apt-get install python3-venv python3-pip ffmpeg -yq
+RUN sudo apt-get update -y && sudo apt-get upgrade
+RUN sudo apt-get install python3-venv python3-pip -y
+
+EXPOSE 6356
+
+CMD python -m SimpleHTTPServer 6356
+
+
+
+
+
 
 #&& echo "**** install streamrip ****" \
 #&& python3 -m pip install streamrip simple-term-menu --upgrade \
 #&& echo "**** cleanup ****" \
 #&& apt-get clean -y
 
-EXPOSE 6356
 #VOLUME /config
 #VOLUME /download
-
-CMD python -m SimpleHTTPServer 6356
