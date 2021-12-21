@@ -5,7 +5,7 @@ RUN apt-get install python3 python3-venv python3-pip -y
 
 EXPOSE 6356
 
-CMD python -m SimpleHTTPServer 6356
+CMD ["python", "-m", "SimpleHTTPServer", "6356"]
 
 
 
