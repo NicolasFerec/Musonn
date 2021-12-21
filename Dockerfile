@@ -1,6 +1,6 @@
 FROM debian:11
 
-RUN apt-get update -y && apt-get upgrade
+RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install python3-venv python3-pip -y
 
 EXPOSE 6356
