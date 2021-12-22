@@ -1,7 +1,8 @@
+FROM php:8.1.1-fpm
+
 ENV BRANCH main
 
 #FROM devilbox/php-fpm-8.1:latest
-FROM php:8.1.1-fpm
 
 RUN echo "**** Updating packages... ****" \
 && apt update -y && apt upgrade -y \
