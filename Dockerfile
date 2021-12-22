@@ -14,6 +14,7 @@ RUN echo "**** Installing symfony... ****" \
 && mv /root/.symfony/bin/symfony /usr/local/bin/symfony \
 && curl -sS https://getcomposer.org/installer -o composer-setup.php \
 && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+&& rm composer-setup.php \
 && echo "**** Done! ****"
 #&& composer install
 
