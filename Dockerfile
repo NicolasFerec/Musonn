@@ -1,6 +1,7 @@
 FROM php:8.1.1-fpm
 
 ENV BRANCH main
+ENV APP_ENV prod
 
 #FROM devilbox/php-fpm-8.1:latest
 
