@@ -4,8 +4,8 @@
 
 echo "**** Init script started ****"
 
-if [ ! -f "Musonn" ]; then
-	"**** Musonn folder not found, cloning repo... ****"
+if [[ ! -d "Musonn" ]]; then
+	echo "**** Musonn folder not found, cloning repo... ****"
 	git clone -b $BRANCH https://github.com/NicolasFerec/Musonn.git
 	cd Musonn
 	echo "**** Done! ****"

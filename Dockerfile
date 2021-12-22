@@ -11,6 +11,8 @@ RUN echo "**** Updating packages... ****" \
 
 RUN echo "**** Installing symfony... ****" \
 && apt install curl wget unzip git -y \
+&& docker-php-ext-configure intl \
+&& docker-php-ext-install intl \
 && wget https://get.symfony.com/cli/installer -O - | bash \
 && mv /root/.symfony/bin/symfony /usr/local/bin/symfony \
 && curl -sS https://getcomposer.org/installer -o composer-setup.php \
