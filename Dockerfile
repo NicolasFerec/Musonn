@@ -6,11 +6,11 @@ ENV APP_ENV prod
 #FROM devilbox/php-fpm-8.1:latest
 
 RUN echo "**** Updating packages... ****" \
-&& apt update -y && apt upgrade -y \
+&& apt-get update -y && apt-get upgrade -y \
 && echo "**** Done! ****"
 
 RUN echo "**** Installing symfony... ****" \
-&& apt install curl wget unzip git -y \
+&& apt-get install curl wget unzip git libicu-dev -y \
 && docker-php-ext-configure intl \
 && docker-php-ext-install intl \
 && wget https://get.symfony.com/cli/installer -O - | bash \
@@ -22,7 +22,7 @@ RUN echo "**** Installing symfony... ****" \
 #&& composer install
 
 RUN echo "**** Installing streamrip... ****" \
-&& apt install python3 python3-venv python3-pip -y \
+&& apt-get install python3 python3-venv python3-pip -y \
 && python3 -m pip install streamrip simple-term-menu --upgrade \
 && echo "**** Done! ****"
 COPY streamrip-config.toml /root/.config/streamrip/config.toml
